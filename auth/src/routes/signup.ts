@@ -5,6 +5,7 @@ import { validateRequest, BadRequestError } from '@gbticketing/common';
 import jwt from 'jsonwebtoken';
 const router = express.Router();
 
+// @ts-ignore
 router.post(
   '/api/users/signup',
   [

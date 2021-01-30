@@ -7,7 +7,7 @@ import { Password } from '../services/password';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
-
+// @ts-ignore
 router.post(
   '/api/users/signin',
   [

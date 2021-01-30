@@ -29,6 +29,7 @@ app.all('*', async (req, res) => {
   throw new NotFoundError();
 });
 
+// @ts-ignore
 app.use(errorHandler);
 
 export { app };
