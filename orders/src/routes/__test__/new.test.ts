@@ -43,8 +43,6 @@ it('reserves a ticket', async () => {
 
   await ticket.save();
 
-  console.log(ticket);
-
   await request(app)
     .post('/api/orders')
     .set('Cookie', global.signin())
