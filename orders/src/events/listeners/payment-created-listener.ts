@@ -1,4 +1,9 @@
-import { Listener, OrderStatus, PaymentCreatedEvent, Subjects } from '@gbticketing/common';
+import {
+  Listener,
+  OrderStatus,
+  PaymentCreatedEvent,
+  Subjects,
+} from '@gbticketing/common';
 import { query } from 'express';
 import { Message } from 'node-nats-streaming';
 import { Order } from '../../models/order';
@@ -12,16 +17,15 @@ export class PaymentCreatedListener extends Listener<PaymentCreatedEvent> {
     const order = await Order.findById(data.orderId);
 
     if (!order) {
-      throw new Error('Order not found);
+      throw new Error('Order not found');
     }
 
     order.set({
-      status: OrderStatus.Complete
+      status: OrderStatus.Complete,
     });
 
     await order.save();
 
-    msg.ack()
-
+    msg.ack();
   }
 }
